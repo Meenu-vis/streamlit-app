@@ -1,10 +1,14 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
 
-st.title("Interactive Streamlit App")
+st.title("Simple Chart in Streamlit")
 
-# Taking user input
-name = st.text_input("Enter your name:")
+# Generating random data
+data = pd.DataFrame(
+    np.random.randn(10, 2),
+    columns=['X', 'Y']
+)
 
-# Displaying a message when a button is clicked
-if st.button("Submit"):
-    st.write(f"Hello, {name}! Welcome to Streamlit.")
+# Displaying the line chart
+st.line_chart(data)
